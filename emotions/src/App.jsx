@@ -13,7 +13,7 @@ function App() {
         const response = await axios.get(`http://localhost:3000/scenes/${sceneId}`);
         setCurrentScene(response.data);
       } catch (error) {
-        console.error('Error fetching scene data', error);
+        console.error('Error fetching scene or character data', error);
       }
     };
 
@@ -24,16 +24,16 @@ function App() {
     setCurrentSceneId(nextSceneId);
   };
 
+  console.log(currentScene);
+
   return (
-    <>
-      <div className='App'>
-        {currentScene ? (
-          <Scene scene={currentScene} onChoice={handleChoice}/>
-        ) : (
-          <p>Loading...</p>
-        )}
-      </div>
-    </>
+    <div className='App'>
+      {currentScene ? (
+        <Scene scene={currentScene} onChoice={handleChoice}/>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
   );
 }
 
