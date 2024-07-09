@@ -1,4 +1,204 @@
-.character {
-    width: 250px;
-    height: 250px;
+.mainScene {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background: rgb(201,215,221);
+    background: linear-gradient(180deg, rgba(201,215,221,1) 36%, rgba(167,184,200,1) 67%, rgba(138,156,182,1) 100%);
+    overflow-y: hidden;
+    font-family: 'Helvetica';
 }
+
+.scene {
+    border-radius: 5px 5px 0 0;
+}
+
+.character {
+    height: 900px;
+    margin: 0 auto;
+    transform: translate(-175px, -20px);
+}
+
+.circleBg {
+    width: 318px;
+    height: 318px;
+    border-radius: 50%;
+    background: rgb(254,243,207);
+    background: linear-gradient(180deg, rgba(254,243,207,1) 0%, rgba(254,243,207,1) 26%, rgba(232,200,113,1) 69%);
+    transform: translate(40px, 390px);
+}
+
+.dialoguesBg {
+    width: 792px;
+    height: 72px;
+    background: rgb(232,200,113);
+    background: linear-gradient(180deg, rgba(232,200,113,1) 0%, rgba(254,243,207,1) 19%, rgba(254,243,207,1) 100%);
+    transform: translate(308px, 250px);
+}
+
+.dialogues {
+    font-size: 18px;
+}
+
+/* App.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    background-color: #f8f9fa; 
+    font-family: Arial, sans-serif; 
+}
+
+.container h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #007bff; 
+}
+
+.container button {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    background-color: #007bff; 
+    color: white; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.container button:hover {
+    background-color: #0056b3; 
+}
+
+.login {
+    max-width: 400px;
+    margin: 0 auto; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login form div {
+    margin-bottom: 15px;
+}
+
+.login form label {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.login form input[type="text"],
+.login form input[type="password"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login form button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.login p {
+    color: red;
+    font-size: 1rem;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.register {
+    max-width: 400px;
+    margin: 0 auto; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.register h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register form div {
+    margin-bottom: 15px;
+}
+
+.register form label {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.register form input[type="text"],
+.register form input[type="email"],
+.register form input[type="password"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.register form button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register form button[type="submit"]:hover {
+    background-color: #0056b3; 
+}
+
+.register p {
+    color: red;
+    font-size: 1rem;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
