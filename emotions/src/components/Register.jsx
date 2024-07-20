@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function Register({ onRegister }) {
+function Register() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -17,20 +17,29 @@ function Register({ onRegister }) {
                 email,
                 password,
             });
-            onRegister(response.data.user_id); 
-            navigate('/scene'); 
+            setMessage('Registration successful!');
+            navigate('/login'); // Перенаправляем на компонент Login
         } catch (error) {
             console.error('Error during registration', error);
-            setMessage('Registration failed. Please try again.');
+            if (error.response && error.response.data && error.response.data.message) {
+                setMessage(error.response.data.message);
+            } else {
+                setMessage('Registration failed');
+            }
         }
     };
 
     return (
-        <div className="register">
-            <h2>Register</h2>
-            <form onSubmit={handleSubmit}>
+        <div className='registerMain'>
+            <div className='logoContainer'>
+                <img src="/backgrounds/Logo.svg" alt="" />
+                <h1>Emotions</h1>
+                <h2>choose your love</h2>
+            </div>
+            <form className="register" onSubmit={handleSubmit}>
+                <h2>Регистрация</h2>
                 <div>
-                    <label>Username:</label>
+                    <label>Имя:</label>
                     <input
                         type="text"
                         value={username}
@@ -39,7 +48,7 @@ function Register({ onRegister }) {
                     />
                 </div>
                 <div>
-                    <label>Email:</label>
+                    <label>E-mail:</label>
                     <input
                         type="email"
                         value={email}
@@ -48,7 +57,7 @@ function Register({ onRegister }) {
                     />
                 </div>
                 <div>
-                    <label>Password:</label>
+                    <label>Пароль:</label>
                     <input
                         type="password"
                         value={password}
@@ -56,7 +65,7 @@ function Register({ onRegister }) {
                         required
                     />
                 </div>
-                <button type="submit">Register</button>
+                <button type="submit">Отправить</button>
             </form>
             {message && <p>{message}</p>}
         </div>

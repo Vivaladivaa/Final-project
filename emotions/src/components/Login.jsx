@@ -8,29 +8,40 @@ function Login({ onLogin }) {
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
 
-
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Предотвращаем действие по умолчанию
+
         try {
             const response = await axios.post('http://localhost:3000/login', {
                 username,
                 password,
             });
-            onLogin(response.data.user_id); 
-            navigate('/scene'); 
+
+            // Убедитесь, что response.data содержит ожидаемые данные
+            if (response.data && response.data.username && response.data.user_id) {
+                onLogin(response.data.username, response.data.user_id); // Передаем username и user_id в App
+                navigate('/scene'); // Перенаправляем на компонент Scene
+            } else {
+                setMessage('Login failed. Please try again.');
+            }
         } catch (error) {
             console.error('Error during login', error);
             setMessage('Invalid username or password');
         }
     };
 
-
     return (
-        <div className="login">
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
+        
+        <div className="loginMain">
+            <div className='logoContainer'>
+                <img src="/backgrounds/Logo.svg" alt="" />
+                <h1>Emotions</h1>
+                <h2>choose your love</h2>
+            </div>
+            <form className='login' onSubmit={handleSubmit}>
+            <h2>Вход</h2>
                 <div>
-                    <label>Username:</label>
+                    <label>Имя:</label>
                     <input
                         type="text"
                         value={username}
@@ -39,7 +50,7 @@ function Login({ onLogin }) {
                     />
                 </div>
                 <div>
-                    <label>Password:</label>
+                    <label>Пароль:</label>
                     <input
                         type="password"
                         value={password}
@@ -47,7 +58,7 @@ function Login({ onLogin }) {
                         required
                     />
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit">Отправить</button>
             </form>
             {message && <p>{message}</p>}
         </div>
